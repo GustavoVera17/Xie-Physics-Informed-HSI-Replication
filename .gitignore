@@ -2,6 +2,10 @@
 **/.venv/
 **/__pycache__/
 
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
 # Ignorar datasets pesados
 **/dataset/
 **/CAVE_Raw/

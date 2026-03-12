@@ -66,7 +66,7 @@ class SSL_Color_Loss(nn.Module):
         B, C, H, W = hsi_pred.shape
         
         # Aplanamos espacialmente: de [B, 31, 256, 256] a [B, 31, 65536]
-        hsi_flat = hsi_pred.view(B, C, -1)
+        hsi_flat = hsi_pred.reshape(B, C, -1)
         
         # Expandimos la matriz CRF para el tamaño del lote: [B, 3, 31]
         crf_batch = self.crf.unsqueeze(0).expand(B, -1, -1)
@@ -76,7 +76,7 @@ class SSL_Color_Loss(nn.Module):
         rgb_simulado_flat = torch.bmm(crf_batch, hsi_flat)
         
         # Restauramos la dimensión espacial: [B, 3, 256, 256]
-        rgb_simulado = rgb_simulado_flat.view(B, 3, H, W)
+        rgb_simulado = rgb_simulado_flat.reshape(B, 3, H, W)
         
         # Calculamos el MSE
         loss_color = self.mse(rgb_simulado, rgb_real)
