@@ -1,0 +1,28 @@
+# Ignorar entornos virtuales y caché
+**/.venv/
+**/__pycache__/
+
+# Ignorar datasets pesados
+**/dataset/
+**/CAVE_Raw/
+**/Harvard_Raw/
+**/*.png
+**/*.jpg
+
+# Ignorar pesos de modelos, zips y datos de matlab
+**/checkpoints/
+**/*.pth
+**/*.zip
+**/*.mat
+**/*.npz
+
+# Ignorar imágenes del dashboard
+**/dashboards/
+
+# 1. Le decimos a Git que no ignore esta carpeta
+!Resultados/
+
+# 2. Le decimos a Git que recupere los PNG y ZIP que están adentro
+!Resultados/**/*.png
+!Resultados/**/*.zip
+!Resultados/**/*.pth
