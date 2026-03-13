@@ -7,7 +7,7 @@ from skimage.metrics import structural_similarity as ssim_metric
 
 # Importamos los módulos específicos de la replicación de Xie
 from dataset_dual import CASSIDualDataset
-from sir_cnn import SIR_CNN
+from sir_cnn_W18 import SIR_CNN
 from metricas import calcular_psnr, calcular_sam
 
 def calcular_ssim(pred, target):
@@ -28,7 +28,7 @@ def main():
     RUTA_MODELO_PTH = r"C:\CODE2026\CASSIproy2026\CASSIproy2026\Xie_Rep\checkpoints_xie\xie_hrnet_best.pth"
     
     # Ruta exacta de la carpeta de la imagen de prueba (Misma que usabas antes)
-    RUTA_CARPETA_IMAGEN = r"C:\CODE2026\CASSIproy2026\CASSIproy2026\Xie_Rep\dataset\fortest\clay_ms"
+    RUTA_CARPETA_IMAGEN = r"C:\CODE2026\CASSIproy2026\CASSIproy2026\Xie_Rep\dataset\fortest\cd_ms"
 
     # =========================================================================
 

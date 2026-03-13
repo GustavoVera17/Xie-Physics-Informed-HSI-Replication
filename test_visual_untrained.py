@@ -4,7 +4,7 @@ import numpy as np
 
 # Importamos nuestros módulos recién creados
 from dataset_dual import CASSIDualDataset
-from sir_cnn import SIR_CNN
+from sir_cnn_W48 import SIR_CNN
 
 def main():
     print("Iniciando Prueba Visual de la Red No Entrenada...")

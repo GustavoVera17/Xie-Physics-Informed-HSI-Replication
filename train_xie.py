@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 
 # Importamos nuestros módulos rigurosamente armados
 from dataset_dual import CASSIDualDataset
-from sir_cnn import SIR_CNN
+from sir_cnn_W48 import SIR_CNN
 from physics_loss import SSL_Grayscale_Loss, SSL_Color_Loss
 from metricas import calcular_psnr, calcular_sam
 from skimage.metrics import structural_similarity as ssim_metric
