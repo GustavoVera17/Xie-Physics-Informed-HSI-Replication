@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 
 # Importamos nuestros módulos rigurosamente armados
 from dataset_dual import CASSIDualDataset
-from sir_cnn_W48 import SIR_CNN
+from sir_cnn_W48SB import SIR_CNN
 from physics_loss import SSL_Grayscale_Loss, SSL_Color_Loss
 from metricas import calcular_psnr, calcular_sam
 from skimage.metrics import structural_similarity as ssim_metric
@@ -38,7 +38,7 @@ def train_xie():
     # =========================================================================
     # ⚙️ HIPERPARÁMETROS EXACTOS DEL PAPER
     # =========================================================================
-    BATCH_SIZE = 4 # Ajustado para evitar Out Of Memory. Súbelo si tu GPU aguanta.
+    BATCH_SIZE = 8 # Ajustado para evitar Out Of Memory. Súbelo si tu GPU aguanta.
     MAX_EPOCHS = 1200     
     INITIAL_LR = 0.001
     FACTOR_REDUCCION = 0.2
@@ -103,8 +103,7 @@ def train_xie():
             
             optimizador.zero_grad()
             
-            prediccion_raw = modelo(cassi_real) 
-            prediccion_3d = prediccion_raw[:, :, :, :256].contiguous() # Contiguous asegura la memoria
+            prediccion_3d = modelo(cassi_real)
             
             loss_gb, cassi_sim = juez_cassi(prediccion_3d, cassi_real)
             loss_cb, rgb_sim = juez_rgb(prediccion_3d, rgb_real)
